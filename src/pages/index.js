@@ -1,62 +1,70 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ConnectButton } from "thirdweb/react";
+import { useAccount } from 'wagmi'
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+// import {
+//   TonConnectButton,
+//   useTonAddress,
+//   useTonWallet,
+// } from '@tonconnect/ui-react'
+import Page from '../components/layout/Layout'
+import { Button, LargeTitle, Text } from '@telegram-apps/telegram-ui'
+import { useLaunchParams } from '@telegram-apps/sdk-react'
+import HomePage from '../components/homepage/HomePage'
+import Layout from '../components/layout/Layout'
+import { useCallback, useState,useEffect } from 'react'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const Home = () => {
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+    const [isLayoutReady, setIsLayoutReady] = useState(false)
 
-export default function Home() {
+    useEffect(() => {
+      setIsLayoutReady(true)
+    }, [setIsLayoutReady])
+
+  // WalletConnect - Wagmi
+  // https://wagmi.sh/react/getting-started
+  // const { address, isConnected } = useAccount()
+  // const { open } = useWeb3Modal()
+
+  // TonConnect
+  // https://docs.ton.org/develop/dapps/ton-connect/react
+  // const wallet = useTonWallet()
+  // const userFriendlyAddress = useTonAddress()
+
+  // const lp = useLaunchParams()
+
+  // console.log('Launch params:', lp)
+  // console.log('Wagmi:', address, isConnected)
+  // console.log('TON:', wallet)
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <h1 className="text-2xl font-bold">My Telegram Mini App</h1>
-        
-        {/* thirdweb ConnectButton */}
-        <ConnectButton
-          client={{ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID }}
-        />
+    // <Page>
+    //   <LargeTitle weight="1">Web3 - Telegram Mini App</LargeTitle>
+    //   <br />
+    //   <Text>Wagmi:</Text>
+    //   <br />
+    //   <Button onClick={() => open()}>
+    //     <span>{isConnected ? 'Open Profile' : 'Connect WalletConnect'}</span>
+    //   </Button>
+    //   <br />
+    //   <Text>
+    //     {address} {isConnected}
+    //   </Text>
+    //   <hr />
+    //   <Text>TON:</Text>
+    //   <br />
+    //   <div style={{ margin: 'auto', width: 'fit-content' }}>
+    //     <TonConnectButton />
+    //   </div>
+    //   <Text>{userFriendlyAddress}</Text>
+    //   <Text>{JSON.stringify(wallet)}</Text>
+    //   <hr />
+    //   <Text>Launch params: {JSON.stringify(lp)}</Text>
+    // </Page>
 
-        <p className="text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          Connect your wallet to get started!
-        </p>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://thirdweb.com/dashboard"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            thirdweb Dashboard
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://thirdweb.com/docs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn thirdweb
-        </a>
-      </footer>
-    </div>
-  );
+    <Layout>
+      {isLayoutReady && <HomePage/>}
+    </Layout>
+    
+  )
 }
+
+export default Home
