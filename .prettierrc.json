@@ -6,6 +6,7 @@
   "tabWidth": 2,
   "useTabs": false,
   "htmlWhitespaceSensitivity": "css",
-  "tailwindConfig": "./tailwind.config.ts",
+  "tailwindConfig": "@/tailwind.config.mjs",
   "plugins": ["prettier-plugin-tailwindcss"]
 }
+

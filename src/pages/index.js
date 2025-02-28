@@ -10,8 +10,16 @@ import { Button, LargeTitle, Text } from '@telegram-apps/telegram-ui'
 import { useLaunchParams } from '@telegram-apps/sdk-react'
 import HomePage from '../components/homepage/HomePage'
 import Layout from '../components/layout/Layout'
+import { useCallback, useState,useEffect } from 'react'
 
 const Home = () => {
+
+    const [isLayoutReady, setIsLayoutReady] = useState(false)
+
+    useEffect(() => {
+      setIsLayoutReady(true)
+    }, [setIsLayoutReady])
+
   // WalletConnect - Wagmi
   // https://wagmi.sh/react/getting-started
   // const { address, isConnected } = useAccount()
@@ -53,7 +61,7 @@ const Home = () => {
     // </Page>
 
     <Layout>
-      <HomePage />
+      {isLayoutReady && <HomePage/>}
     </Layout>
     
   )

@@ -5,12 +5,10 @@ import { SettingsProvider } from '@/contexts/SettingsContext'
 
 function Settings() {
   return (
-    <Layout>
-        
-        
-      <SettingsProvider>
-            <SettingsPage/>
-        </SettingsProvider>
+    <Layout> 
+    <SettingsProvider>
+      <SettingsPage/>
+    </SettingsProvider>
     </Layout>
   )
 }

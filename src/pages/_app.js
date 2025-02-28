@@ -55,9 +55,11 @@ export default function App({ Component, pageProps }) {
 
 
     <ThirdwebProvider> 
-            <WagmiProvider config={config}>
+      <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />;
+          <Suspense fallback={<Spinner />}>
+          <Component {...pageProps} />;
+          </Suspense>
         </QueryClientProvider>
       </WagmiProvider>
     </ThirdwebProvider>

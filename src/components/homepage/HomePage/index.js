@@ -2,17 +2,23 @@
 import { Button} from '@telegram-apps/telegram-ui'
 import { useAccount } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
+import { useCallback } from 'react';
 
 
+function HomePage() {
 
+  const {  isConnected } = useAccount()
 
+  const { open } = useWeb3Modal()
 
-const Home = () => {
-    const { address, isConnected } = useAccount()
-    const { open } = useWeb3Modal()
+  const handleConnectClick = useCallback(() => {
+    open()
+  },[open])
+
   return (
     <div className="flex flex-col h-full w-full">
       {/* Logo Section */}
+
       <div className="flex-1 flex-col flex items-center justify-center w-full max-w-lg mx-auto">
         <div className="relative w-full aspect-[3/4] flex items-center justify-center">
           {/* Hermes Logo */}
@@ -25,17 +31,13 @@ const Home = () => {
           </div>
         </div>
 
-    <div className='w-2/3'>
-    {!isConnected&&<Button onClick={() => open()}>
-      Connect WalletConnect
-    </Button> }    
-    </div>
+         {!isConnected &&
+         <Button className='w-2/3' onClick={handleConnectClick}>
+            Connect WalletConnect
+        </Button>}
       </div>
-
-
-    {/* Navigation Bar */} 
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
