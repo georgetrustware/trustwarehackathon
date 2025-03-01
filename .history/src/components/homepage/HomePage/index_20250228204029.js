@@ -1,16 +1,17 @@
-// pages/index.js (or wherever HomePage is located)
-import { Button } from '@telegram-apps/telegram-ui';
-import { useAccount } from 'wagmi';
-import { useWeb3Modal } from '@web3modal/wagmi/react';
-import { useCallback } from 'react';
+import { Button } from '@telegram-apps/telegram-ui'
+import { useAccount } from 'wagmi'
+import { useWeb3Modal } from '@web3modal/wagmi/react'
+import { useCallback } from 'react'
+// Import the logo image (adjust the path according to your project structure)
+import HermesLogo from '../../../public/hackathonlogo.JPG' // Adjust path if needed
 
 function HomePage() {
-  const { isConnected } = useAccount();
-  const { open } = useWeb3Modal();
+  const { isConnected } = useAccount()
+  const { open } = useWeb3Modal()
 
   const handleConnectClick = useCallback(() => {
-    open();
-  }, [open]);
+    open()
+  }, [open])
 
   return (
     <div className="flex flex-col h-full w-full">
@@ -20,7 +21,7 @@ function HomePage() {
           {/* Hermes Logo */}
           <div className="relative w-full max-w-xs">
             <img
-              src="/hackathonlogo.JPG" // Correct static path from /public
+              src={HermesLogo} // Use the imported image variable
               alt="Hermes Logo"
               className="w-full h-auto object-contain"
             />
@@ -34,7 +35,7 @@ function HomePage() {
         )}
       </div>
     </div>
-  );
+  )
 }
 
-export default HomePage;
+export default HomePage

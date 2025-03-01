@@ -26,7 +26,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 // import { WC_WEB3_PROJECT_ID } from './constants.js'
 import Spinner from '@/components/Spinner.js'
 // import { retrieveLaunchParams } from '@telegram-apps/sdk-react'
- const WC_WEB3_PROJECT_ID = process.env.NEXT_PUBLIC_WC_WEB3_PROJECT_ID || 'something'
+ const WC_WEB3_PROJECT_ID = process.env.NEXT_PUBLIC_WC_WEB3_PROJECT_ID || ''
 
 createWeb3Modal({
   wagmiConfig: config,
