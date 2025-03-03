@@ -27,9 +27,7 @@ const NavItem = ({
             console.log({param})
             router.push(path)
         }
-
-        
-    },[])
+    },[path, router])
 
   return (
     <motion.button

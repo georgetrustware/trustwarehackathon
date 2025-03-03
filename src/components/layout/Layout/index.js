@@ -16,6 +16,14 @@ const Layout = ({ children, back = true }) => {
   //   backButton.hide()
   // }, [back, navigate])
 
+  //show empty div if !isLayoutReady
+
+      // const [isLayoutReady, setIsLayoutReady] = useState(false)
+  
+      // useEffect(() => {
+      //   setIsLayoutReady(true)
+      // }, [setIsLayoutReady])
+
   return (
     <div
       style={{
