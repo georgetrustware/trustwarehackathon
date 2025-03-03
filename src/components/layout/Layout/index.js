@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom'
-import { backButton } from '@telegram-apps/sdk-react'
-import { useEffect } from 'react'
+// import { useNavigate } from 'react-router-dom'
+// import { backButton } from '@telegram-apps/sdk-react'
+// import { useEffect } from 'react'
 import NavBar from './NavBar'
 
 const Layout = ({ children, back = true }) => {
