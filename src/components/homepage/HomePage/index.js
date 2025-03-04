@@ -3,6 +3,7 @@ import { Button} from '@telegram-apps/telegram-ui'
 import { useAccount } from 'wagmi'
 import { useWeb3Modal } from '@web3modal/wagmi/react'
 import { useCallback } from 'react';
+import Image from 'next/image';
 
 
 function HomePage() {
@@ -23,7 +24,7 @@ function HomePage() {
         <div className="relative w-full aspect-[3/4] flex items-center justify-center">
           {/* Hermes Logo */}
           <div className="relative w-full max-w-xs">
-            <img
+            <Image
               src="/lovable-uploads/531a3c87-62fd-4e13-91b0-935c371f420c.png"
               alt="Hermes Logo"
               className="w-full h-auto object-contain"
