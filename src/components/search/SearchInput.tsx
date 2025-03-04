@@ -2,20 +2,20 @@ import React, { FC, useCallback, useRef } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import { IoIosClose } from 'react-icons/io'
 
-// interface SearchBoxProps {
-//   searchValue: string
-//   handleChange: (newValue: string) => void
-//   type?: string
-//   placeHolder?: string
-//   style?: string
-// }
+interface SearchBoxProps {
+  searchValue: string
+  handleChange: (newValue: string) => void
+  type?: string
+  placeHolder?: string
+  style?: string
+}
 const SearchInput = ({
   searchValue,
   handleChange,
   type = 'text',
   placeHolder,
   style,
-}) => {
+}:SearchBoxProps) => {
   const inputRef = useRef(null)
 
   const handleClearInputClick = useCallback(

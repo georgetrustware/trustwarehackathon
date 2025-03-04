@@ -56,7 +56,7 @@ const NavItem = ({
 
 function NavBar() {
   return (
-          <nav className="w-full max-w-lg mx-auto">
+      <nav className="w-full max-w-lg mx-auto">
         <div className="flex justify-between items-center px-4 py-6 bg-white rounded-t-2xl border-t border-gray-100">
           {navigationItems.map((item, index) => (
             <NavItem

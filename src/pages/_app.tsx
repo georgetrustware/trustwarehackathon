@@ -19,7 +19,7 @@ import '@telegram-apps/telegram-ui/dist/styles.css'
 import '@/styles/styles.css'
 // import { initialize } from '@/services/telegram-sdk.js'
 import { createWeb3Modal } from '@web3modal/wagmi/react'
-import { config } from '@/services/wagmi.js'
+import { config } from '@/services/wagmi'
 import { WagmiProvider } from 'wagmi'
 // import { TonConnectUIProvider } from '@tonconnect/ui-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -58,7 +58,7 @@ export default function App({ Component, pageProps }) {
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <Suspense fallback={<Spinner />}>
-          <Component {...pageProps} />;
+          <Component {...pageProps} />
           </Suspense>
         </QueryClientProvider>
       </WagmiProvider>
