@@ -17,7 +17,7 @@ const SearchPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#FFFFFF] flex flex-col">
+    <div className="min1-h-screen h-full bg-[#FFFFFF] flex flex-col">
       <div className="flex-1 p-6 max-w-lg mx-auto w-full">
         {/* Search Bar with Material elevation */}
         <div className="relative mb-8">
@@ -40,6 +40,7 @@ const SearchPage = () => {
             >
               Send a Message
             </TabsTrigger>
+
             <TabsTrigger 
               value="wall"
               className="text-base font-medium px-4 py-3 text-[#8E9196] data-[state=active]:text-[#9b87f5] data-[state=active]:border-b-2 data-[state=active]:border-[#9b87f5] data-[state=active]:shadow-none data-[state=active]:bg-transparent transition-all duration-200"
@@ -48,7 +49,7 @@ const SearchPage = () => {
             </TabsTrigger>
           </TabsList>
           <TabsContent value="send">
-            <div className="space-y-8">
+            <div className="space-y-8 h-full">
               {/* Shout Section */}
               <div>
                 <h2 className="text-lg font-medium mb-4 text-[#1A1F2C]">Shout</h2>
@@ -115,7 +116,7 @@ const SearchPage = () => {
             </div>
           </TabsContent>
           <TabsContent value="wall">
-            <div className="text-center text-[#8E9196] py-8 bg-white rounded-lg shadow-sm">
+            <div className="text-center text-[#8E9196] py-8 bg-white rounded-lg shadow-sm min-h-full h-full">
               Message Wall Content
             </div>
           </TabsContent>
@@ -124,13 +125,6 @@ const SearchPage = () => {
       {/* <Navigation /> */}
     </div>
   );
-
-
-
-};
+}
 
 export default SearchPage;
-
-// return(
-//     <p>this is searchpage</p>
-// )
