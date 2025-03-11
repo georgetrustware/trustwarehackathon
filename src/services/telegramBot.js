@@ -59,25 +59,25 @@ bot.command('menu', handleMenu);
 // Callback handlers to trigger commands
 bot.action('start', (ctx) => {
   handleStart(ctx);
-  ctx.answerCbQuery(); // Use shorthand method
+  ctx.answerCbQuery();
 });
 
 bot.action('app', (ctx) => {
   handleApp(ctx);
-  ctx.answerCbQuery(); // Use shorthand method
+  ctx.answerCbQuery();
 });
 
 bot.action('trustware', (ctx) => {
   handleTrustware(ctx);
-  ctx.answerCbQuery(); // Use shorthand method
+  ctx.answerCbQuery();
 });
 
 bot.action('menu', (ctx) => {
   handleMenu(ctx);
-  ctx.answerCbQuery(); // Use shorthand method
+  ctx.answerCbQuery();
 });
 
-// Start polling in development
+// Start polling only in development
 if (process.env.NODE_ENV === 'development') {
   console.log('Starting bot polling...');
   bot.launch().then(() => {
@@ -85,6 +85,9 @@ if (process.env.NODE_ENV === 'development') {
   }).catch((error) => {
     console.error('Polling error:', error);
   });
+} else {
+  console.log('Production mode: Webhook expected, polling disabled.');
 }
 
 export default bot;
+
