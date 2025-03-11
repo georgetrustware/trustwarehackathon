@@ -21,7 +21,7 @@ function HomePage() {
         <div className="relative w-full aspect-[3/4] flex items-center justify-center">
           {/* Hermes Logo */}
           <div className="relative w-full max-w-xs">
-            <Image
+            <img
               src="/hackathonlogo.JPG" // Correct static path from /public
               alt="Hermes Logo"
               className="w-full h-auto object-contain"
