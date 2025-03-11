@@ -33,6 +33,7 @@ const handleMenu = (ctx) => {
 const imageUrl = process.env.NODE_ENV === 'development'
   ? 'https://i.imgur.com/7v3uM5E.jpg' // Public URL for local testing
   : 'https://trustwarehackathon.vercel.app/hackathonlogo.JPG'; // Vercel URL for production
+const fallbackImageUrl = 'https://i.imgur.com/7v3uM5E.jpg'; // Fallback if Vercel URL fails
 
 const menuKeyboard = Markup.inlineKeyboard([
   [Markup.button.callback('Start', 'start')],
@@ -42,11 +43,19 @@ const menuKeyboard = Markup.inlineKeyboard([
 ]).reply_markup;
 
 const sendMenu = (ctx) => {
+  console.log('Attempting to send menu with image:', imageUrl);
   try {
     ctx.sendPhoto(imageUrl, { reply_markup: menuKeyboard });
+    console.log('Menu sent successfully with:', imageUrl);
   } catch (error) {
-    console.error('Error sending photo:', error);
-    ctx.sendMessage('Sorry, there was an issue loading the menu. Try again later.');
+    console.error('Error sending photo with primary URL:', error);
+    try {
+      ctx.sendPhoto(fallbackImageUrl, { reply_markup: menuKeyboard });
+      console.log('Menu sent successfully with fallback:', fallbackImageUrl);
+    } catch (fallbackError) {
+      console.error('Error sending photo with fallback URL:', fallbackError);
+      ctx.sendMessage('Sorry, there was an issue loading the menu. Try again later.');
+    }
   }
 };
 
@@ -90,4 +99,3 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 export default bot;
-
