@@ -68,7 +68,7 @@ bot.command('menu', handleMenu);
 // Callback handlers to trigger commands
 bot.action('start', (ctx) => {
   handleStart(ctx);
-  ctx.answerCbQuery();
+  ctx.answerCbQuery({ url: 'https://t.me/TrustwareHackathonbot/trustware_app' }); // Opens the app
 });
 
 bot.action('app', (ctx) => {
