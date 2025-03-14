@@ -16,7 +16,8 @@ const handleStart = (ctx) => {
 
 const handleApp = (ctx) => {
   console.log('/app from:', ctx.from.username || ctx.from.id);
-  ctx.sendMessage('Launch: https://t.me/TrustwareHackathonbot/trustware_app');
+  // Optional: Send a message with the link as a fallback or confirmation
+  ctx.sendMessage('Opening app: https://t.me/TrustwareHackathonbot/trustware_app');
 };
 
 const handleTrustware = (ctx) => {
@@ -68,12 +69,12 @@ bot.command('menu', handleMenu);
 // Callback handlers to trigger commands
 bot.action('start', (ctx) => {
   handleStart(ctx);
-  ctx.answerCbQuery({ url: 'https://t.me/TrustwareHackathonbot/trustware_app' }); // Opens the app
+  ctx.answerCbQuery();
 });
 
 bot.action('app', (ctx) => {
-  handleApp(ctx);
-  ctx.answerCbQuery();
+  handleApp(ctx); // Sends the message (optional)
+  ctx.answerCbQuery({ url: 'https://t.me/TrustwareHackathonbot/trustware_app' }); // Opens the app
 });
 
 bot.action('trustware', (ctx) => {
